@@ -35,10 +35,10 @@ function createLists(arr){
                          <strong>${ele.todoItem}</strong>
                          <div>
                             <i
-                            onClick="onEdit(this)"
+                            onclick="onEdit(this)"
                              class="fa-solid fa-pen-to-square fa-2x text-primary" role="button"></i>
                             <i 
-                            onClick="onRemove(this)"
+                            onclick="onRemove(this)"
                             class="fa-solid fa-trash-can fa-2x text-danger" role="button"></i>
                          </div>
                      </li>
@@ -61,14 +61,15 @@ function onTodoSubmit(eve){
     // createLists(todoArr)
     let li = document.createElement('li');
     li.className = 'list-group-item d-flex justify-content-between align-items-center'
+    li.id = todoObj.todoId;
     li.innerHTML = `
                      <strong>${todoObj.todoItem}</strong>
                          <div>
                             <i
-                             onClick="onEdit(this)"
+                             onclick="onEdit(this)"
                              class="fa-solid fa-pen-to-square fa-2x text-primary" role="button"></i>
                             <i
-                            onClick="onRemove(this)"
+                            onclick="onRemove(this)"
                             class="fa-solid fa-trash-can fa-2x text-danger" role="button"></i>
                          </div>
                    `
@@ -96,7 +97,7 @@ function onTodoUpdate(ele){
     }
     todoForm.reset()
     //cl(UPDATED_TODO)
-    let getIndex = todoArr.findIndex(t => t.todoId = EDIT_ID)
+    let getIndex = todoArr.findIndex(t => t.todoId === EDIT_ID)
     todoArr[getIndex] = UPDATED_TODO
     updateTodoBtn.classList.add('d-none')
     addTodoBtn.classList.remove('d-none')
